@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import {
   FiHelpCircle,
   FiChevronDown
-} from 'react-icons/fi';
+} from 'react-icons/fi'; 
 import { FAQS } from '../data/landingData';
 
 export const FaqSection = () => {

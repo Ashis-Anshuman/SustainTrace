@@ -8,8 +8,9 @@ import {
   FiLock
 } from 'react-icons/fi';
 
-export const Navbar = ({ onOpenDemo, onOpenReport }) => {
+export const Navbar = ({ onOpenLogin, onOpenDemo, onOpenReport }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const handlePortalAccess = onOpenLogin || onOpenDemo;
 
   const navLinks = [
     { name: 'Overview', href: '#overview' },
@@ -70,7 +71,7 @@ export const Navbar = ({ onOpenDemo, onOpenReport }) => {
 
           <button
             type="button"
-            onClick={onOpenDemo}
+            onClick={handlePortalAccess}
             className="inline-flex items-center gap-2 rounded-lg bg-emerald-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 transition-all cursor-pointer"
           >
             <FiLock className="h-3.5 w-3.5" />
@@ -124,12 +125,12 @@ export const Navbar = ({ onOpenDemo, onOpenReport }) => {
               type="button"
               onClick={() => {
                 setMobileMenuOpen(false);
-                onOpenDemo();
+                handlePortalAccess();
               }}
               className="w-full flex items-center justify-center gap-2 rounded-lg bg-emerald-600 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-emerald-700"
             >
               <FiLock className="h-4 w-4" />
-              <span>Portal Access / Request Demo</span>
+              <span>Portal Access (Sign In)</span>
             </button>
           </div>
         </div>

@@ -7,7 +7,9 @@ import {
 import { MetricsPreviewCard } from './MetricsPreviewCard';
 import { STATS_SUMMARY } from '../data/landingData';
 
-export const Hero = ({ onOpenDemo, onOpenReport }) => {
+export const Hero = ({ onOpenLogin, onOpenDemo, onOpenReport }) => {
+  const handleOpenPortal = onOpenLogin || onOpenDemo;
+
   return (
     <section id="overview" className="relative overflow-hidden pt-8 pb-16 lg:pt-14 lg:pb-24">
       {/* Decorative background grid and gradient accents */}
@@ -48,7 +50,7 @@ export const Hero = ({ onOpenDemo, onOpenReport }) => {
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <button
               type="button"
-              onClick={onOpenDemo}
+              onClick={handleOpenPortal}
               className="inline-flex items-center gap-2 rounded-xl bg-emerald-600 px-6 py-3.5 text-base font-semibold text-white shadow-lg shadow-emerald-600/25 hover:bg-emerald-700 hover:shadow-emerald-600/35 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 transition-all cursor-pointer"
             >
               <span>Explore Portal Dashboard</span>
