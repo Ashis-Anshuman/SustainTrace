@@ -10,6 +10,7 @@ import {
   FiPrinter
 } from 'react-icons/fi';
 import { AUDITOR_CHECKLIST } from '../../data/portalData';
+import { downloadSignedAssuranceStatement } from '../../utils/exportUtils';
 
 export const AuditorPanel = () => {
   const [checklist, setChecklist] = useState(AUDITOR_CHECKLIST);
@@ -444,11 +445,15 @@ export const AuditorPanel = () => {
                   </button>
                   <button
                     type="button"
-                    onClick={() => alert('Official Signed Assurance Statement PDF downloaded.')}
-                    className="inline-flex items-center gap-1.5 rounded-lg bg-amber-600 px-3.5 py-1.5 text-xs font-bold text-white hover:bg-amber-700 cursor-pointer"
+                    onClick={() => {
+                      downloadSignedAssuranceStatement();
+                      setStatusAlert('Official Signed Assurance Statement (ISAE 3000) downloaded successfully.');
+                      setTimeout(() => setStatusAlert(''), 3500);
+                    }}
+                    className="inline-flex items-center gap-1.5 rounded-lg bg-amber-600 px-3.5 py-1.5 text-xs font-bold text-white hover:bg-amber-700 cursor-pointer shadow-xs"
                   >
                     <FiDownload className="h-3.5 w-3.5" />
-                    <span>Download Signed PDF</span>
+                    <span>Download Signed Statement</span>
                   </button>
                 </div>
               </div>

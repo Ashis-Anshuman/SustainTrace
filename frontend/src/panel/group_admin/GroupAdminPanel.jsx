@@ -10,6 +10,8 @@ import {
   FiTrendingDown
 } from 'react-icons/fi';
 import { GROUP_CORPORATE_KPI } from '../../data/portalData';
+import { SAMPLE_BRSR_TABLE } from '../../data/landingData';
+import { exportBrsrToXbrl } from '../../utils/exportUtils';
 
 export const GroupAdminPanel = ({ onOpenReportModal }) => {
   const [selectedSubId, setSelectedSubId] = useState('MEIL Green Power Ltd');
@@ -27,6 +29,7 @@ export const GroupAdminPanel = ({ onOpenReportModal }) => {
   };
 
   const handleExportXbrl = () => {
+    exportBrsrToXbrl(SAMPLE_BRSR_TABLE, 'MEIL_Group_SEBI_BRSR_Core_XBRL.xml');
     setXbrlExportAlert(true);
     setTimeout(() => setXbrlExportAlert(false), 3500);
   };

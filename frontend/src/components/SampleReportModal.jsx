@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import {
   FiX,
   FiDownload,
@@ -6,12 +6,28 @@ import {
   FiFileText,
   FiShield,
   FiSearch,
-  FiPrinter
+  FiPrinter,
+  FiChevronDown
 } from 'react-icons/fi';
 import { SAMPLE_BRSR_TABLE } from '../data/landingData';
+import { exportBrsrToCsv, exportBrsrToExcelXml, exportBrsrToXbrl } from '../utils/exportUtils';
 
 export const SampleReportModal = ({ isOpen, onClose }) => {
   const [filterText, setFilterText] = useState('');
+  const [downloadFormat, setDownloadFormat] = useState('csv');
+  const [showFormatDropdown, setShowFormatDropdown] = useState(false);
+  const [downloadSuccessMsg, setDownloadSuccessMsg] = useState('');
+  const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setShowFormatDropdown(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   if (!isOpen) return null;
 
@@ -20,6 +36,30 @@ export const SampleReportModal = ({ isOpen, onClose }) => {
     item.principle.toLowerCase().includes(filterText.toLowerCase()) ||
     item.param.toLowerCase().includes(filterText.toLowerCase())
   );
+
+  const handleDownload = (format = downloadFormat) => {
+    const dataToExport = filteredData.length > 0 ? filteredData : SAMPLE_BRSR_TABLE;
+    let fileName = '';
+
+    if (format === 'csv') {
+      fileName = 'SEBI_BRSR_Core_Annexure_I_Report.csv';
+      exportBrsrToCsv(dataToExport, fileName);
+      setDownloadSuccessMsg('Downloaded Excel CSV: SEBI_BRSR_Core_Annexure_I_Report.csv');
+    } else if (format === 'xls') {
+      fileName = 'SEBI_BRSR_Core_Annexure_I_Report.xls';
+      exportBrsrToExcelXml(dataToExport, fileName);
+      setDownloadSuccessMsg('Downloaded Styled Excel: SEBI_BRSR_Core_Annexure_I_Report.xls');
+    } else if (format === 'xbrl') {
+      fileName = 'SEBI_BRSR_Core_Report.xml';
+      exportBrsrToXbrl(dataToExport, fileName);
+      setDownloadSuccessMsg('Downloaded SEBI XBRL: SEBI_BRSR_Core_Report.xml');
+    }
+
+    setShowFormatDropdown(false);
+    setTimeout(() => {
+      setDownloadSuccessMsg('');
+    }, 4000);
+  };
 
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-3 sm:p-6 animate-fade-in">
@@ -55,6 +95,23 @@ export const SampleReportModal = ({ isOpen, onClose }) => {
           </button>
         </div>
 
+        {/* Success toast notification */}
+        {downloadSuccessMsg && (
+          <div className="bg-emerald-50 border-b border-emerald-200 px-6 py-2.5 flex items-center justify-between text-xs font-semibold text-emerald-800 animate-fade-in">
+            <div className="flex items-center gap-2">
+              <FiCheckCircle className="h-4 w-4 text-emerald-600" />
+              <span>{downloadSuccessMsg}</span>
+            </div>
+            <button
+              type="button"
+              onClick={() => setDownloadSuccessMsg('')}
+              className="text-emerald-700 hover:text-emerald-900 text-xs cursor-pointer font-bold"
+            >
+              Dismiss
+            </button>
+          </div>
+        )}
+
         {/* Modal Controls / Search */}
         <div className="p-6 border-b border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="relative w-full sm:w-72">
@@ -77,14 +134,91 @@ export const SampleReportModal = ({ isOpen, onClose }) => {
               <FiPrinter className="h-3.5 w-3.5" />
               <span>Print Preview</span>
             </button>
-            <button
-              type="button"
-              onClick={() => alert('Sample BRSR Core PDF report downloaded successfully with digital audit trail.')}
-              className="inline-flex items-center gap-1.5 rounded-lg bg-emerald-600 px-3.5 py-2 text-xs font-bold text-white hover:bg-emerald-700 transition-colors cursor-pointer shadow-xs"
-            >
-              <FiDownload className="h-3.5 w-3.5" />
-              <span>Download PDF / XBRL</span>
-            </button>
+
+            {/* Split Download Button with Format Selector */}
+            <div className="relative inline-flex items-center rounded-lg shadow-xs" ref={dropdownRef}>
+              <button
+                type="button"
+                onClick={() => handleDownload(downloadFormat)}
+                className="inline-flex items-center gap-1.5 rounded-l-lg bg-emerald-600 px-3.5 py-2 text-xs font-bold text-white hover:bg-emerald-700 transition-colors cursor-pointer"
+                title={`Download report in ${downloadFormat.toUpperCase()} format`}
+              >
+                <FiDownload className="h-3.5 w-3.5" />
+                <span>Download Excel ({downloadFormat === 'csv' ? 'CSV' : downloadFormat === 'xls' ? 'XLS' : 'XBRL'})</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setShowFormatDropdown(!showFormatDropdown)}
+                className="inline-flex items-center justify-center rounded-r-lg bg-emerald-700 px-2 py-2 text-xs font-bold text-white hover:bg-emerald-800 transition-colors cursor-pointer border-l border-emerald-500"
+                title="Select download format"
+              >
+                <FiChevronDown className="h-3.5 w-3.5" />
+              </button>
+
+              {/* Format Selection Dropdown */}
+              {showFormatDropdown && (
+                <div className="absolute right-0 top-full mt-1.5 w-60 rounded-xl bg-white p-2 shadow-xl border border-slate-200 z-50 animate-fade-in text-xs">
+                  <div className="px-2 py-1 font-bold text-[11px] text-slate-400 uppercase tracking-wider">
+                    Select Download Format
+                  </div>
+                  
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setDownloadFormat('csv');
+                      handleDownload('csv');
+                    }}
+                    className={`w-full text-left px-3 py-2 rounded-lg flex items-center justify-between transition-colors cursor-pointer ${
+                      downloadFormat === 'csv' ? 'bg-emerald-50 text-emerald-900 font-bold' : 'text-slate-700 hover:bg-slate-100 font-medium'
+                    }`}
+                  >
+                    <div>
+                      <div className="flex items-center gap-1.5">
+                        <span className="font-bold">Excel Spreadsheet (.csv)</span>
+                        <span className="rounded bg-emerald-100 text-emerald-800 text-[10px] px-1.5 py-0.2">Default</span>
+                      </div>
+                      <p className="text-[11px] text-slate-500 font-normal">Native Excel table with UTF-8 BOM</p>
+                    </div>
+                    {downloadFormat === 'csv' && <FiCheckCircle className="h-3.5 w-3.5 text-emerald-600 shrink-0" />}
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setDownloadFormat('xls');
+                      handleDownload('xls');
+                    }}
+                    className={`w-full text-left px-3 py-2 rounded-lg flex items-center justify-between transition-colors cursor-pointer ${
+                      downloadFormat === 'xls' ? 'bg-emerald-50 text-emerald-900 font-bold' : 'text-slate-700 hover:bg-slate-100 font-medium'
+                    }`}
+                  >
+                    <div>
+                      <div className="font-bold">Excel Workbook (.xls)</div>
+                      <p className="text-[11px] text-slate-500 font-normal">Formatted XML table with styling</p>
+                    </div>
+                    {downloadFormat === 'xls' && <FiCheckCircle className="h-3.5 w-3.5 text-emerald-600 shrink-0" />}
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setDownloadFormat('xbrl');
+                      handleDownload('xbrl');
+                    }}
+                    className={`w-full text-left px-3 py-2 rounded-lg flex items-center justify-between transition-colors cursor-pointer ${
+                      downloadFormat === 'xbrl' ? 'bg-emerald-50 text-emerald-900 font-bold' : 'text-slate-700 hover:bg-slate-100 font-medium'
+                    }`}
+                  >
+                    <div>
+                      <div className="font-bold">SEBI XBRL Package (.xml)</div>
+                      <p className="text-[11px] text-slate-500 font-normal">Official machine-readable taxonomy</p>
+                    </div>
+                    {downloadFormat === 'xbrl' && <FiCheckCircle className="h-3.5 w-3.5 text-emerald-600 shrink-0" />}
+                  </button>
+                </div>
+              )}
+            </div>
           </div>
         </div>
 
