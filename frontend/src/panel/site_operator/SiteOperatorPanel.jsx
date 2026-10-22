@@ -206,16 +206,19 @@ export const SiteOperatorPanel = () => {
       <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <div>
           <div className="flex items-center gap-2">
-            <span className="rounded-md bg-emerald-50 px-2 py-0.5 text-xs font-bold text-emerald-800 border border-emerald-200 font-mono">
-              SITE ID: MEIL-SOLAR-004
+            <span className="rounded-md bg-emerald-50 px-2.5 py-0.5 text-xs font-bold text-emerald-800 border border-emerald-300 font-mono">
+              🌱 SITE ID: MEIL-SOLAR-004
             </span>
             <span className="text-xs text-slate-500 font-medium">Cuttack, Odisha</span>
           </div>
           <h1 className="mt-1 text-2xl font-extrabold text-slate-900">
-            Site Operator Data Ingestion Console
+            Site Operator Data Ingestion Console{' '}
+            <span className="font-serif italic font-normal text-emerald-800 text-lg sm:text-xl block sm:inline">
+              • Forest &amp; Leaf Living Ledger
+            </span>
           </h1>
           <p className="mt-1 text-xs sm:text-sm text-slate-600">
-            Input physical utility consumption and attach statutory source evidence for FY 2025-26.
+            Recorded by plant engineers with physical utility meter slips, solar generation records, and statutory calibration logs.
           </p>
         </div>
 

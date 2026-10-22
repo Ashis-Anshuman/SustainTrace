@@ -14,69 +14,64 @@ export const Navbar = ({ onOpenLogin, onOpenDemo, onOpenReport }) => {
 
   const navLinks = [
     { name: 'Overview', href: '#overview' },
-    { name: 'Framework (NGRBC 9)', href: '#principles' },
-    { name: 'Multi-Tier Flow', href: '#workflow' },
+    { name: 'Framework', href: '#principles' },
+    { name: 'Workflow', href: '#workflow' },
     { name: 'BRSR Core', href: '#brsr-core' },
     { name: 'Capabilities', href: '#features' },
     { name: 'FAQs', href: '#faqs' },
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-slate-200/80 bg-white/95 backdrop-blur-md transition-all">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 h-20">
+    <header className="sticky top-0 z-50 w-full border-b border-slate-200/90 bg-white/95 backdrop-blur-md transition-all">
+      <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-10 h-16 flex items-center justify-between gap-4">
         
-        {/* Brand Logo */}
-        <a href="#overview" className="flex items-center gap-3 group focus:outline-none">
-          <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-500 text-white shadow-sm shadow-emerald-500/20 group-hover:scale-105 transition-transform duration-200">
-            <FiShield className="h-6 w-6 stroke-[2.2]" />
+        {/* Brand Logo - anchored cleanly on the left side */}
+        <a href="#overview" className="flex items-center gap-2.5 group focus:outline-none shrink-0">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-tr from-emerald-800 to-emerald-600 text-white shadow-sm shadow-emerald-900/20 group-hover:scale-105 group-hover:shadow-emerald-900/30 transition-all duration-300 border border-emerald-700/60">
+            <FiShield className="h-5 w-5 stroke-[2.2]" />
           </div>
           <div className="flex flex-col">
-            <div className="flex items-center gap-1.5">
-              <span className="font-bold text-xl tracking-tight text-slate-900 group-hover:text-emerald-700 transition-colors">
-                Sustain<span className="text-emerald-600">Trace</span>
-              </span>
-              <span className="rounded-md bg-emerald-50 px-1.5 py-0.5 text-[10px] font-semibold text-emerald-700 border border-emerald-200">
-                BRSR Core
-              </span>
-            </div>
-            <span className="text-[11px] font-medium text-slate-500 tracking-wider uppercase">
-              Enterprise ESG Assurance
+            <span className="font-extrabold text-xl tracking-tight text-slate-900 group-hover:text-emerald-800 transition-colors duration-300 leading-tight">
+              Sustain<span className="text-emerald-700 font-serif italic">Trace</span>
+            </span>
+            <span className="text-[10px] font-medium text-slate-500 tracking-wider uppercase leading-none">
+              SEBI BRSR Assurance Portal
             </span>
           </div>
         </a>
 
-        {/* Desktop Navigation Links */}
-        <nav className="hidden lg:flex items-center space-x-1">
+        {/* Desktop Navigation Links - properly arranged with single-line labels */}
+        <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
-              className="rounded-lg px-3.5 py-2 text-sm font-medium text-slate-600 hover:text-emerald-600 hover:bg-slate-50 transition-colors"
+              className="rounded-lg px-3 py-1.5 text-xs xl:text-sm font-semibold text-slate-700 hover:text-emerald-800 hover:bg-emerald-50/80 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 whitespace-nowrap cursor-pointer"
             >
               {link.name}
             </a>
           ))}
         </nav>
 
-        {/* Action CTAs */}
-        <div className="hidden sm:flex items-center gap-3">
+        {/* Action CTAs with smooth hover micro-effects */}
+        <div className="hidden sm:flex items-center gap-2.5 shrink-0">
           <button
             type="button"
             onClick={onOpenReport}
-            className="inline-flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-3.5 py-2 text-sm font-medium text-slate-700 shadow-xs hover:bg-slate-50 hover:border-slate-400 hover:text-slate-900 transition-all cursor-pointer"
+            className="group inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white/90 px-3.5 py-2 text-xs xl:text-sm font-semibold text-slate-700 shadow-2xs hover:border-emerald-600 hover:bg-emerald-50/70 hover:text-emerald-900 hover:shadow-xs hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 ease-out cursor-pointer"
           >
-            <FiFileText className="h-4 w-4 text-slate-500" />
+            <FiFileText className="h-4 w-4 text-emerald-700 group-hover:scale-110 transition-transform duration-300 ease-out" />
             <span>Sample Report</span>
           </button>
 
           <button
             type="button"
             onClick={handlePortalAccess}
-            className="inline-flex items-center gap-2 rounded-lg bg-emerald-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 transition-all cursor-pointer"
+            className="group inline-flex items-center gap-2 rounded-xl bg-emerald-700 px-4 py-2 text-xs xl:text-sm font-semibold text-white shadow-sm hover:bg-emerald-800 hover:shadow-md hover:shadow-emerald-900/25 hover:-translate-y-0.5 active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-emerald-600 focus:ring-offset-2 transition-all duration-300 ease-out cursor-pointer border border-emerald-800"
           >
-            <FiLock className="h-3.5 w-3.5" />
+            <FiLock className="h-3.5 w-3.5 text-emerald-100 group-hover:scale-110 transition-transform duration-300" />
             <span>Portal Access</span>
-            <FiArrowRight className="h-4 w-4" />
+            <FiArrowRight className="h-4 w-4 text-emerald-200 group-hover:translate-x-1 transition-transform duration-300 ease-out" />
           </button>
         </div>
 
@@ -86,7 +81,7 @@ export const Navbar = ({ onOpenLogin, onOpenDemo, onOpenReport }) => {
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle navigation menu"
-            className="inline-flex items-center justify-center rounded-lg p-2.5 text-slate-600 hover:bg-slate-100 focus:outline-none"
+            className="inline-flex items-center justify-center rounded-lg p-2 text-slate-700 hover:bg-slate-100 hover:text-slate-900 transition-colors focus:outline-none"
           >
             {mobileMenuOpen ? <FiX className="h-6 w-6" /> : <FiMenu className="h-6 w-6" />}
           </button>

@@ -74,14 +74,17 @@ export const SampleReportModal = ({ isOpen, onClose }) => {
             <div>
               <div className="flex items-center gap-2">
                 <h3 className="text-lg font-bold text-slate-900">
-                  Sample SEBI BRSR Core Report (Annexure I)
+                  Sample SEBI BRSR Core Report{' '}
+                  <span className="font-serif italic font-normal text-emerald-800">
+                    (Annexure I)
+                  </span>
                 </h3>
-                <span className="rounded bg-emerald-100 px-2 py-0.5 text-[11px] font-semibold text-emerald-800">
-                  SEBI Mandate
+                <span className="rounded bg-emerald-100 px-2 py-0.5 text-[11px] font-bold text-emerald-900 border border-emerald-300">
+                  🌿 SEBI Mandate
                 </span>
               </div>
-              <p className="text-xs text-slate-500">
-                Generated per Circular SEBI/HO/CFD/CFD-SEC-2/P/CIR/2023/122 • Multi-Site Consolidation
+              <p className="text-xs text-slate-600">
+                Generated per Circular SEBI/HO/CFD/CFD-SEC-2/P/CIR/2023/122 • Multi-Site Consolidation • Living Forest Ledger
               </p>
             </div>
           </div>

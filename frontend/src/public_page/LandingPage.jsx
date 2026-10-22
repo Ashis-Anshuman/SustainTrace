@@ -30,21 +30,21 @@ export const LandingPage = ({ onOpenReportModal }) => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-800 flex flex-col font-sans selection:bg-emerald-500 selection:text-white">
+    <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col font-sans selection:bg-emerald-600 selection:text-white">
       {/* Active Session Sticky Banner if user is logged into a role */}
       {isAuthenticated && (
-        <div className="bg-emerald-800 text-white text-xs py-2 px-4 text-center font-medium flex flex-wrap items-center justify-center gap-3 border-b border-emerald-700">
+        <div className="bg-emerald-900 text-white text-xs py-2 px-4 text-center font-medium flex flex-wrap items-center justify-center gap-3 border-b border-emerald-800 shadow-xs">
           <div className="flex items-center gap-2">
-            <span className="h-2 w-2 rounded-full bg-emerald-300 animate-ping"></span>
+            <span className="h-2 w-2 rounded-full bg-emerald-400 animate-ping"></span>
             <span>
-              Active Portal Session: <strong>{currentUser.name}</strong> ({currentUser.roleTitle})
+              🌱 Active Forest &amp; Leaf Session: <strong>{currentUser.name}</strong> ({currentUser.roleTitle})
             </span>
           </div>
 
           <button
             type="button"
             onClick={handleGoToRolePanel}
-            className="inline-flex items-center gap-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-1 font-bold transition-colors cursor-pointer shadow-xs"
+            className="inline-flex items-center gap-1.5 rounded-lg bg-emerald-700 hover:bg-emerald-800 text-white px-3 py-1 font-bold transition-colors cursor-pointer shadow-xs border border-emerald-600"
           >
             <span>Open {currentUser.roleTitle} Panel</span>
             <FiArrowRight className="h-3.5 w-3.5" />
@@ -53,7 +53,7 @@ export const LandingPage = ({ onOpenReportModal }) => {
           <button
             type="button"
             onClick={logout}
-            className="text-emerald-200 hover:text-white underline text-[11px] cursor-pointer"
+            className="text-emerald-300 hover:text-white underline text-[11px] cursor-pointer"
           >
             Sign out
           </button>

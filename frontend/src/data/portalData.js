@@ -6,7 +6,7 @@ export const ROLES_CONFIG = {
     email: 'operator.site254@meilgroup.com',
     roleTitle: 'Site Operator',
     badge: 'Tier 1 • Site Level',
-    badgeColor: 'bg-emerald-100 text-emerald-800 border-emerald-300',
+    badgeColor: 'bg-emerald-100 text-emerald-900 border-emerald-300 font-semibold',
     assignedEntity: 'Unit 4 — Cuttack Solar & Substation Plant',
     hierarchyPath: 'MEIL Group > MEIL Green Power > Unit 4 (Cuttack)',
     avatar: 'RK'
@@ -18,7 +18,7 @@ export const ROLES_CONFIG = {
     email: 'bu.manager.solar@meilgroup.com',
     roleTitle: 'BU / Project Manager',
     badge: 'Tier 2 • BU Approval',
-    badgeColor: 'bg-teal-100 text-teal-800 border-teal-300',
+    badgeColor: 'bg-forest-100 text-forest-900 border-forest-300 font-semibold',
     assignedEntity: 'Eastern Renewable Energy Division (6 Sites)',
     hierarchyPath: 'MEIL Group > MEIL Green Power > Eastern Solar BU',
     avatar: 'SS'
@@ -30,7 +30,7 @@ export const ROLES_CONFIG = {
     email: 'esg.subsidiary@meilgreenpower.com',
     roleTitle: 'Subsidiary ESG Officer',
     badge: 'Tier 3 • Subsidiary Lead',
-    badgeColor: 'bg-blue-100 text-blue-800 border-blue-300',
+    badgeColor: 'bg-leaf-100 text-leaf-900 border-leaf-300 font-semibold',
     assignedEntity: 'MEIL Green Power Ltd (38 Operating Sites)',
     hierarchyPath: 'MEIL Group > Subsidiary: MEIL Green Power Ltd',
     avatar: 'VM'
@@ -42,7 +42,7 @@ export const ROLES_CONFIG = {
     email: 'chief.esg@meilgroup.com',
     roleTitle: 'Group ESG Lead (Corporate)',
     badge: 'Tier 4 • Top Admin',
-    badgeColor: 'bg-purple-100 text-purple-800 border-purple-300',
+    badgeColor: 'bg-emerald-950 text-emerald-100 border-emerald-800 font-semibold',
     assignedEntity: 'MEIL Conglomerate Corporate HQ (254 Sites)',
     hierarchyPath: 'MEIL Group Holding Board • All Subsidiaries',
     avatar: 'AS'
@@ -54,7 +54,7 @@ export const ROLES_CONFIG = {
     email: 'marcus.vance@kpmg-assurance.com',
     roleTitle: 'Assurance Auditor (Independent)',
     badge: 'Tier 5 • Statutory Auditor',
-    badgeColor: 'bg-amber-100 text-amber-800 border-amber-300',
+    badgeColor: 'bg-amber-100 text-amber-900 border-amber-300 font-semibold',
     assignedEntity: 'Statutory Independent Assurance (ISAE 3000)',
     hierarchyPath: 'External Assurance Panel • SEBI BRSR Core Mandate',
     avatar: 'MV'

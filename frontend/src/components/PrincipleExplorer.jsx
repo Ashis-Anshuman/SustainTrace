@@ -24,7 +24,10 @@ export const PrincipleExplorer = () => {
           </div>
 
           <h2 className="mt-3 text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">
-            Interactive Principle Explorer: The 9 NGRBC Pillars
+            Interactive Principle Explorer: The{' '}
+            <span className="font-serif italic font-normal text-emerald-800">
+              9 NGRBC Pillars
+            </span>
           </h2>
 
           <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed">
