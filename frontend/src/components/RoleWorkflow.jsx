@@ -25,7 +25,10 @@ export const RoleWorkflow = () => {
           </div>
 
           <h2 className="mt-3 text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">
-            Role-Based Multi-Tier Rollup Workflow
+            Role-Based Multi-Tier{' '}
+            <span className="font-serif italic font-normal text-emerald-800">
+              Rollup Workflow
+            </span>
           </h2>
 
           <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed">

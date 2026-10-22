@@ -1,10 +1,68 @@
 @import "tailwindcss";
 
+@theme {
+  --font-serif: 'Newsreader', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Botanical Woodland Slate (Warm Organic Canvas & Bark Neutrals) */
+  --color-slate-50: #f6f8f4;
+  --color-slate-100: #ecf2ea;
+  --color-slate-200: #dce6d8;
+  --color-slate-300: #c2d4bd;
+  --color-slate-400: #8ba588;
+  --color-slate-500: #5c7858;
+  --color-slate-600: #42583f;
+  --color-slate-700: #2d3e2b;
+  --color-slate-800: #1d2a1c;
+  --color-slate-900: #111a10;
+  --color-slate-950: #090e09;
+
+  /* Vibrant Leaf & Foliage Greens (Mapped from emerald for instant site-wide leaf beauty) */
+  --color-emerald-50: #f1faf0;
+  --color-emerald-100: #dff5dc;
+  --color-emerald-200: #c1ebb9;
+  --color-emerald-300: #97dc8a;
+  --color-emerald-400: #68c756;
+  --color-emerald-500: #46aa34;
+  --color-emerald-600: #338923;
+  --color-emerald-700: #296d1c;
+  --color-emerald-800: #225619;
+  --color-emerald-900: #1d4716;
+  --color-emerald-950: #0a2707;
+
+  /* Deep Forest Pine & Evergreen */
+  --color-forest-50: #f0f7f2;
+  --color-forest-100: #dcefe1;
+  --color-forest-200: #bbdfc5;
+  --color-forest-300: #8ec89f;
+  --color-forest-400: #5ca974;
+  --color-forest-500: #3a8c54;
+  --color-forest-600: #297040;
+  --color-forest-700: #225934;
+  --color-forest-800: #1d472b;
+  --color-forest-900: #143520;
+  --color-forest-950: #0b1f13;
+
+  /* Fresh Spring Leaf & Sprout */
+  --color-leaf-50: #f4fbf2;
+  --color-leaf-100: #e5f8e0;
+  --color-leaf-200: #cbedc2;
+  --color-leaf-300: #a5de97;
+  --color-leaf-400: #76ca62;
+  --color-leaf-500: #51ae3b;
+  --color-leaf-600: #3d8e2b;
+  --color-leaf-700: #306e23;
+  --color-leaf-800: #29571f;
+  --color-leaf-900: #23481b;
+  --color-leaf-950: #0e270a;
+}
+
 @layer base {
   body {
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    color: #1e293b;
-    background-color: #f8fafc;
+    color: #172418;
+    background-color: #f6f8f4;
     overflow-x: hidden;
   }
 }

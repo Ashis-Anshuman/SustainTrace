@@ -109,7 +109,7 @@ export const Footer = () => {
       <div className="border-t border-slate-800 bg-slate-950/60 py-6 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <div>
-            &copy; 2026 SustainTrace Systems. All rights reserved. Built for corporate sustainability compliance and SEBI BRSR alignment.
+            &copy; 2026 SustainTrace Systems. Handcrafted with human care and environmental rigor for Indian Listed Enterprises • Living Forest &amp; Leaf Design • SEBI BRSR Aligned.
           </div>
 
           <button

@@ -20,7 +20,10 @@ export const BrsrCoreDeepDive = ({ onOpenReport }) => {
           </div>
 
           <h2 className="mt-3 text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">
-            The 9 Mandated Attributes of BRSR Core
+            The 9 Mandated Attributes of{' '}
+            <span className="font-serif italic font-normal text-emerald-800">
+              BRSR Core
+            </span>
           </h2>
 
           <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed">

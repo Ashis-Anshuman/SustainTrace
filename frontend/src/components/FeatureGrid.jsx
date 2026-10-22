@@ -33,7 +33,10 @@ export const FeatureGrid = ({ onOpenDemo }) => {
           </div>
           
           <h2 className="mt-3 text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">
-            Purpose-Built for SEBI BRSR &amp; Multi-Site Assurance
+            Purpose-Built for{' '}
+            <span className="font-serif italic font-normal text-emerald-800">
+              SEBI BRSR &amp; Multi-Site Assurance
+            </span>
           </h2>
           
           <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed">

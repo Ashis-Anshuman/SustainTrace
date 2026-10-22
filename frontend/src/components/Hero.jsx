@@ -26,32 +26,35 @@ export const Hero = ({ onOpenLogin, onOpenDemo, onOpenReport }) => {
         {/* Hero Header Content */}
         <div className="mx-auto max-w-4xl text-center">
           
-          {/* Badge Pill */}
-          <div className="inline-flex items-center gap-2 rounded-full border border-emerald-300 bg-emerald-50/80 px-3.5 py-1.5 text-xs font-semibold text-emerald-800 shadow-xs mb-6 backdrop-blur-xs">
-            <span className="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span>SEBI Mandated • NGRBC Compliant • BRSR Core Ready</span>
+          {/* Handcrafted Botanical Badge Pill */}
+          <div className="inline-flex items-center gap-2 rounded-full border border-emerald-300/90 bg-emerald-50/95 px-4 py-1.5 text-xs font-semibold text-emerald-900 shadow-xs mb-6 backdrop-blur-xs">
+            <span className="flex h-2 w-2 rounded-full bg-emerald-600 animate-pulse"></span>
+            <span className="text-emerald-700 font-bold">🌱 Handcrafted for Indian Enterprise</span>
+            <span className="text-emerald-400">•</span>
+            <span>Living Forest &amp; Leaf Ledger</span>
+            <span className="rounded bg-emerald-200/70 px-1.5 py-0.5 text-[10px] font-bold text-emerald-950 font-mono">SEBI 2023</span>
           </div>
 
-          {/* Value Proposition Headline */}
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.12]">
+          {/* Value Proposition Headline with Human Editorial Serif Accent */}
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.14]">
             Streamline Corporate BRSR &amp; ESG Disclosures Across{' '}
-            <span className="bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-700 bg-clip-text text-transparent">
+            <span className="font-serif italic font-normal text-emerald-800 underline decoration-emerald-300 decoration-wavy decoration-1 underline-offset-8">
               250+ Project Sites.
             </span>
           </h1>
 
-          {/* Subtitle */}
+          {/* Subtitle with Genuine Human Voice */}
           <p className="mt-6 text-lg sm:text-xl text-slate-600 leading-relaxed max-w-3xl mx-auto">
-            Automate bottom-up ESG data capture from remote manufacturing plants, mines, and operating units. 
-            Deliver instant corporate roll-ups, CEA-aligned GHG accounting, and statutory assurance-ready disclosures for SEBI filing.
+            From remote manufacturing plant floors and solar substations to board-level statutory disclosures. 
+            Handcrafted with mathematical rigor to eliminate spreadsheet chaos with automated CEA v19 emission accounting, verified cryptographic audit vaults, and instant SEBI Annexure I rollups.
           </p>
 
-          {/* Dual CTAs */}
+          {/* Dual CTAs in Forest & Leaf Palette */}
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <button
               type="button"
               onClick={handleOpenPortal}
-              className="inline-flex items-center gap-2 rounded-xl bg-emerald-600 px-6 py-3.5 text-base font-semibold text-white shadow-lg shadow-emerald-600/25 hover:bg-emerald-700 hover:shadow-emerald-600/35 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 transition-all cursor-pointer"
+              className="inline-flex items-center gap-2.5 rounded-xl bg-emerald-700 px-6 py-3.5 text-base font-semibold text-white shadow-lg shadow-emerald-900/20 hover:bg-emerald-800 hover:shadow-emerald-900/30 focus:outline-none focus:ring-2 focus:ring-emerald-600 focus:ring-offset-2 transition-all cursor-pointer border border-emerald-800"
             >
               <span>Explore Portal Dashboard</span>
               <FiArrowRight className="h-5 w-5" />
@@ -60,15 +63,15 @@ export const Hero = ({ onOpenLogin, onOpenDemo, onOpenReport }) => {
             <button
               type="button"
               onClick={onOpenReport}
-              className="inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-6 py-3.5 text-base font-semibold text-slate-700 shadow-xs hover:bg-slate-50 hover:border-slate-400 hover:text-slate-900 transition-all cursor-pointer"
+              className="inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white/90 px-6 py-3.5 text-base font-semibold text-slate-800 shadow-xs hover:bg-emerald-50/50 hover:border-emerald-300 hover:text-emerald-900 transition-all cursor-pointer"
             >
-              <FiFileText className="h-5 w-5 text-slate-500" />
+              <FiFileText className="h-5 w-5 text-emerald-700" />
               <span>View Sample BRSR Report</span>
             </button>
           </div>
 
           {/* Micro Trust Indicators */}
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-500 font-medium">
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-600 font-medium">
             <span className="inline-flex items-center gap-1.5">
               <FiCheckCircle className="h-4 w-4 text-emerald-600" />
               9 NGRBC Principles Covered

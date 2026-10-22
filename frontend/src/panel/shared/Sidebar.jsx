@@ -85,31 +85,31 @@ export const Sidebar = ({ activeTab, onSelectTab, isMobileOpen, onCloseMobile })
       >
         <div>
           {/* Brand Logo Header */}
-          <div className="flex h-16 items-center gap-3 border-b border-slate-200 px-5">
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-500 text-white shadow-xs">
+          <div className="flex h-16 items-center gap-3 border-b border-slate-200 px-5 bg-white">
+            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-tr from-emerald-800 to-emerald-600 text-white shadow-xs border border-emerald-700">
               <FiShield className="h-5 w-5" />
             </div>
             <div className="flex flex-col">
               <span className="font-extrabold text-slate-900 text-base tracking-tight">
-                EcoLedger <span className="text-emerald-600">BRSR</span>
+                Sustain<span className="text-emerald-700 font-serif italic">Trace</span>
               </span>
-              <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider">
-                Enterprise ESG Portal
+              <span className="text-[10px] font-mono text-emerald-800 uppercase tracking-wider font-semibold">
+                🌿 Forest &amp; Leaf Console
               </span>
             </div>
           </div>
 
           {/* Current Role Identity Card */}
-          <div className="p-4 border-b border-slate-100 bg-slate-50/70">
+          <div className="p-4 border-b border-slate-200/70 bg-emerald-50/40">
             <div className="flex items-center gap-2.5">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-600 text-white font-bold text-xs">
+              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-700 text-white font-bold text-xs shadow-xs">
                 {currentUser.avatar}
               </div>
               <div className="truncate">
                 <div className="text-xs font-bold text-slate-900 truncate">
                   {currentUser.roleTitle}
                 </div>
-                <div className="text-[10px] font-medium text-emerald-700 truncate">
+                <div className="text-[10px] font-medium text-emerald-800 truncate">
                   {currentUser.assignedEntity}
                 </div>
               </div>
@@ -118,7 +118,7 @@ export const Sidebar = ({ activeTab, onSelectTab, isMobileOpen, onCloseMobile })
 
           {/* Dynamic Navigation Links tailored by Role */}
           <div className="p-3 space-y-1">
-            <div className="px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-slate-400">
+            <div className="px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-slate-500">
               Role Workspaces
             </div>
 
@@ -136,16 +136,16 @@ export const Sidebar = ({ activeTab, onSelectTab, isMobileOpen, onCloseMobile })
                   }}
                   className={`w-full flex items-start gap-3 rounded-xl px-3 py-2.5 text-left transition-all cursor-pointer ${
                     isActive
-                      ? 'bg-emerald-600 text-white shadow-xs'
-                      : 'text-slate-700 hover:bg-slate-100/80 hover:text-slate-900'
+                      ? 'bg-emerald-700 text-white shadow-sm border border-emerald-800'
+                      : 'text-slate-700 hover:bg-emerald-50/70 hover:text-emerald-900'
                   }`}
                 >
-                  <Icon className={`h-4 w-4 mt-0.5 shrink-0 ${isActive ? 'text-white' : 'text-slate-500'}`} />
+                  <Icon className={`h-4 w-4 mt-0.5 shrink-0 ${isActive ? 'text-white' : 'text-emerald-700'}`} />
                   <div className="truncate">
                     <div className="text-xs font-bold truncate leading-tight">
                       {item.label}
                     </div>
-                    <div className={`text-[10px] truncate ${isActive ? 'text-emerald-100' : 'text-slate-400'}`}>
+                    <div className={`text-[10px] truncate ${isActive ? 'text-emerald-100' : 'text-slate-500'}`}>
                       {item.desc}
                     </div>
                   </div>
@@ -156,24 +156,26 @@ export const Sidebar = ({ activeTab, onSelectTab, isMobileOpen, onCloseMobile })
         </div>
 
         {/* Sidebar Footer Controls */}
-        <div className="border-t border-slate-200 p-3 space-y-2 bg-slate-50/50">
-          <div className="rounded-xl border border-slate-200 bg-white p-2.5 text-[11px] text-slate-600">
-            <div className="flex items-center justify-between text-slate-500">
-              <span>Security Vault:</span>
-              <span className="font-mono text-emerald-700 font-bold">SHA-256</span>
+        <div className="border-t border-slate-200 p-3 space-y-2 bg-slate-50/80">
+          <div className="rounded-xl border border-emerald-200/80 bg-white p-2.5 text-[11px] text-slate-700 shadow-2xs">
+            <div className="flex items-center justify-between text-slate-600">
+              <span className="font-semibold text-emerald-900 flex items-center gap-1">
+                <span>🌱</span> Theme:
+              </span>
+              <span className="font-mono text-emerald-800 font-bold">Forest &amp; Leaf</span>
             </div>
             <div className="flex items-center justify-between text-slate-500 mt-1">
-              <span>SEBI Circular:</span>
-              <span className="font-mono text-slate-800">2023 Compliant</span>
+              <span>Security Vault:</span>
+              <span className="font-mono text-emerald-700 font-bold">SHA-256 Intact</span>
             </div>
           </div>
 
           <button
             type="button"
             onClick={handleReturnToPublic}
-            className="w-full flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white py-2 text-xs font-medium text-slate-700 hover:bg-slate-100 transition-colors cursor-pointer"
+            className="w-full flex items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white py-2 text-xs font-medium text-slate-700 hover:bg-emerald-50/50 hover:text-emerald-900 transition-colors cursor-pointer"
           >
-            <FiArrowLeft className="h-3.5 w-3.5" />
+            <FiArrowLeft className="h-3.5 w-3.5 text-emerald-700" />
             <span>Return to Public Site</span>
           </button>
         </div>
